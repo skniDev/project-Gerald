@@ -1,0 +1,366 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #464646;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+}
+
+.machine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+}
+
+.currency {
+    font-size: 24px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -40px;
+    background-color: #222;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.timer {
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #541c6e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #310d42;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.test-input {
+    padding: 10px;
+    background-color: rgb(75, 75, 75);
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 80%;
+    max-width: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-emphasis-color: #7e7e7e;
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
+.test-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    position: absolute;
+    top: 90px;
+    left: 10px;
+}
+
+.test-button:hover {
+    background-color: #cc0000;
+    box-shadow: #000 0 0 5px;
+}
+
+.screen {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #222;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reel {
+    width: 85px;
+    height: 80px;
+    background-color: #ccc;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.machine::after, .machine::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        --angle: 0deg;
+    }
+    100% {
+        --angle: 360deg;
+    }
+}
+
+.machine::before {
+    filter: blur(0.85rem);
+    opacity: 0.5;
+}
+
+.spin-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.spin-button:hover {
+    background-color: #cc0000;
+    box-shadow: #000 0 0 5px;
+}
+
+.spin-button.clicked {
+    transform: scale(0.95);
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(28,28,28);
+    background: linear-gradient(45deg, rgba(28,28,28,1) 0%, rgba(17,17,17,1) 35%, rgb(34, 34, 34) 100%);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+}
+
+.notification.show {
+    opacity: 1;
+    top: 40px;
+}
+
+.FasterTimer, .MorePerUpdate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 150px;
+    background: rgb(28,28,28);
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px;
+    margin-bottom: 20px;
+    position: fixed;
+}
+
+.FasterTimer {
+    background: linear-gradient(45deg, rgb(38, 44, 23) 0%, rgb(51, 61, 26) 35%, rgb(28, 34, 15) 100%);
+    border-color: rgb(99, 124, 46);
+    box-shadow: 0 0 15px rgb(84, 110, 16);
+    top: 15%;
+    left: 1%;
+}
+
+.MorePerUpdate {
+    background: linear-gradient(45deg, rgb(26, 51, 133) 0%, rgb(10, 29, 90) 35%, rgb(50, 69, 131) 100%);
+    border-color: #4d79ff;
+    box-shadow: 0 0 20px #243a7a;
+    top: 40%;
+    left: 1%;
+}
+
+.upgrade1-button, .upgrade2-button {
+    padding: 10px 20px;
+    font-size: 17.5px;
+    background: rgb(28,28,28);
+    box-shadow: #000 0 0 5px;
+    color: #fff;
+    border: 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    margin-top: 10px;
+}
+
+.upgrade1-button {
+    background: linear-gradient(45deg, rgb(90, 104, 55) 0%, rgb(64, 77, 33) 35%, rgb(63, 78, 30) 100%);
+    border-color: #172402;
+}
+
+.upgrade2-button {
+    background: linear-gradient(45deg, rgb(26, 51, 133) 0%, rgb(10, 29, 90) 35%, rgb(50, 69, 131) 100%);
+    border-color: #091835;
+}
+
+.upgrade1-button:hover, .upgrade2-button:hover {
+    background-color: #333;
+    box-shadow: #000 0 0 10px;
+    font-weight: 600;
+}
+
+.upgrade1-title, .upgrade2-title {
+    position: relative;
+    font-family: 'Quicksand', 400;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.upgrade1-title {
+    bottom: 45%;
+}
+
+.upgrade2-title {
+    bottom: 47%;
+}
+
+.upgrade1-cost, .upgrade2-cost {
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.bet-input {
+    padding: 10px;
+    background-color: rgb(75, 75, 75);
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    text-emphasis-color: #7e7e7e;
+    text-align: center;
+}
+
+@media (max-width: 1366px) {
+    .FasterTimer, .MorePerUpdate {
+        width: 150px;
+        height: 120px;
+        padding: 10px;
+    }
+
+    .upgrade1-button, .upgrade2-button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .upgrade1-title, .upgrade2-title {
+        font-size: 16px;
+    }
+
+    .upgrade1-cost, .upgrade2-cost {
+        font-size: 16px;
+    }
+
+    .reel {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .currency, .timer {
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+
+    .spin-button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .bet-input {
+        padding: 5px;
+        font-size: 14px;
+        width: 70%;
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .FasterTimer, .MorePerUpdate {
+        width: 120px;
+        height: 100px;
+        padding: 5px;
+    }
+
+    .upgrade1-button, .upgrade2-button {
+        padding: 3px 5px;
+        font-size: 12px;
+    }
+
+    .upgrade1-title, .upgrade2-title {
+        font-size: 14px;
+    }
+
+    .upgrade1-cost, .upgrade2-cost {
+        font-size: 14px;
+    }
+
+    .reel {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .currency, .timer {
+        font-size: 18px;
+        padding: 3px 5px;
+    }
+
+    .spin-button {
+        padding: 3px 5px;
+        font-size: 12px;
+    }
+
+    .bet-input {
+        padding: 3px;
+        font-size: 12px;
+        width: 60%;
+        max-width: 120px;
+    }
+}

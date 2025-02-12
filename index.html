@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gambling Machine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="FasterTimer">
+        <button class="upgrade1-button" id="upgrade1-button">Upgrade</button>
+        <div class="upgrade1-title" id="upgrade1-title">Faster Timer</div>
+        <div class="upgrade1-cost" id="upgrade1-cost">$100</div>
+    </div>
+
+    <div class="MorePerUpdate">
+        <button class="upgrade2-button" id="upgrade2-button">Upgrade</button>
+        <div class="upgrade2-title" id="upgrade2-title">More money per 30s</div>
+        <div class="upgrade2-cost" id="upgrade2-cost">$230</div>
+    </div>
+
+    <div class="timer" id="timer">30s</div>
+    <input type="number" id="test-amount" class="test-input" placeholder="Enter cash amount" min="1">
+    <button class="test-button" id="test-button">Add Cash</button>
+    <div class="machine">
+        <div class="currency">Balance: $500</div>
+        <div class="screen">
+            <div class="reel"></div>
+            <div class="reel"></div>
+            <div class="reel"></div>
+        </div>
+        <input type="number" id="bet-amount" class="bet-input" placeholder="Enter bet amount" min="1">
+        <button class="spin-button">Spin</button>
+    </div>
+    <div class="notification" id="notification"></div>
+    <script src="index.js"></script>
+</body>
+</html>
